@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venkatesh - SAP BW/4HANA & ABAP Consultant Portfolio">
+    <meta name="keywords" content="SAP BW/4HANA, SAP ABAP, SAP Consultant, Data Warehousing, SAP HANA">
+    <title>Venkatesh | SAP BW/4HANA & ABAP Consultant</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        :root {
+            --sap-blue: #0070F2;
+            --sap-blue-dark: #0040B0;
+            --sap-teal: #0A6ED1;
+            --sap-gold: #E8A000;
+            --sap-green: #107E3E;
+            --sap-orange: #E76500;
+            --dark: #1A1A2E;
+            --dark2: #16213E;
+            --card-bg: #F5F7FA;
+            --text: #1A1A2E;
+            --text-muted: #556070;
+            --border: #D9E1EC;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: '72', 'SAP-icons', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: var(--dark);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            height: 60px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+        .nav-logo {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .nav-logo span { color: var(--sap-gold); }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover { color: var(--sap-gold); border-bottom-color: var(--sap-gold); }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0d3b8c 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(0,112,242,0.2), transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(232,160,0,0.15), transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0,112,242,0.25);
+            color: #7ec8ff;
+            border: 1px solid rgba(0,112,242,0.5);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+        .hero h1 span { color: var(--sap-gold); }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+        }
+        .hero-tagline {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 2.5rem;
+        }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--sap-blue);
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border: 2px solid var(--sap-blue);
+        }
+        .btn-primary:hover { background: var(--sap-blue-dark); border-color: var(--sap-blue-dark); transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-2px); }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            flex-wrap: wrap;
+        }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--sap-gold); }
+        .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+        /* ── SECTIONS ── */
+        .section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .section-alt { background: #F0F4FA; }
+        .section-alt .section { max-width: 100%; }
+        .section-alt-inner { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0,112,242,0.1);
+            color: var(--sap-blue);
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .section-title span { color: var(--sap-blue); }
+        .section-line {
+            width: 50px; height: 4px;
+            background: var(--sap-blue);
+            border-radius: 2px;
+            margin: 1rem 0 2.5rem;
+        }
+
+        /* ── ABOUT ── */
+        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; }
+        .about-avatar-card {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 80px;
+        }
+        .avatar-circle {
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sap-blue), var(--sap-gold));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+            border: 3px solid rgba(255,255,255,0.15);
+        }
+        .about-avatar-card h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .about-avatar-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; }
+        .cert-list { text-align: left; }
+        .cert-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            font-size: 0.82rem;
+            border-left: 3px solid var(--sap-gold);
+            line-height: 1.5;
+        }
+        .cert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+        .about-content h3 { font-size: 1.3rem; color: var(--text); margin-bottom: 1rem; font-weight: 600; }
+        .about-content p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.97rem; }
+        .about-highlights {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;
+        }
+        .highlight-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.2rem;
+            border-left: 4px solid var(--sap-blue);
+        }
+        .highlight-item h4 { font-size: 0.85rem; color: var(--sap-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
+        .highlight-item p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
+
+        /* ── EXPERTISE / SKILLS ── */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        .expertise-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: var(--card-accent, var(--sap-blue));
+        }
+        .expertise-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,70,130,0.12); }
+        .expertise-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .expertise-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; }
+        .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+        .pill {
+            background: #EBF3FF;
+            color: var(--sap-teal);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .pill.gold { background: #FFF3D6; color: #7A5100; }
+        .pill.green { background: #EAFAF0; color: #0B5226; }
+        .pill.orange { background: #FFF0E6; color: #7A2D00; }
+
+        /* ── EXPERIENCE ── */
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--sap-blue), var(--sap-gold));
+            border-radius: 2px;
+        }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--sap-blue);
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px rgba(0,112,242,0.25);
+        }
+        .timeline-item:first-child .timeline-dot { background: var(--sap-gold); box-shadow: 0 0 0 3px rgba(232,160,0,0.25); }
+        .timeline-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 1.8rem;
+            transition: box-shadow 0.3s;
+        }
+        .timeline-card:hover { box-shadow: 0 6px 24px rgba(0,70,130,0.1); }
+        .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
+        .timeline-role { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+        .timeline-period {
+            background: rgba(0,112,242,0.1);
+            color: var(--sap-blue);
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .timeline-company { color: var(--sap-blue); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .timeline-card ul { padding-left: 1.2rem; }
+        .timeline-card ul li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+        .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+        .timeline-tag {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        /* ── PROJECTS ── */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .project-card {
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,70,130,0.12); }
+        .project-top {
+            padding: 1.5rem;
+            display: flex; align-items: flex-start; gap: 1rem;
+        }
+        .project-icon-box {
+            width: 50px; height: 50px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .project-top h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+        .project-top p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+        .project-bottom {
+            padding: 1rem 1.5rem 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        .project-bottom ul { padding-left: 1.1rem; }
+        .project-bottom ul li { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+        .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+        .stack-tag {
+            background: #EBF3FF;
+            color: var(--sap-teal);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ── LINKS ── */
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
+        .link-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+            display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+        }
+        .link-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,70,130,0.12); border-color: var(--sap-blue); }
+        .link-icon { font-size: 2rem; }
+        .link-card h3 { font-size: 0.95rem; font-weight: 700; }
+        .link-card p { font-size: 0.82rem; color: var(--text-muted); }
+
+        /* ── CONTACT ── */
+        .contact-wrapper {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+            border-radius: 20px;
+            padding: 3.5rem;
+            text-align: center;
+            color: white;
+        }
+        .contact-wrapper h3 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .contact-wrapper p { color: rgba(255,255,255,0.65); margin-bottom: 2rem; font-size: 1rem; }
+        .contact-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .contact-btn {
+            background: var(--sap-blue);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .contact-btn:hover { background: var(--sap-blue-dark); transform: translateY(-2px); }
+        .contact-btn.alt { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); }
+        .contact-btn.alt:hover { background: rgba(255,255,255,0.18); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 1.8rem;
+            font-size: 0.85rem;
+        }
+        footer span { color: var(--sap-gold); }
+
+        /* ── ACHIEVEMENTS ── */
+        .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .achievement-card {
+            background: white;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+        .achievement-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,70,130,0.1); }
+        .achievement-icon-wrap {
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .achievement-body { flex: 1; }
+        .achievement-badge {
+            display: inline-block;
+            background: #EBF3FF;
+            color: var(--sap-teal);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .achievement-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+        .achievement-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav { padding: 0 1rem; }
+            .nav-links { gap: 1rem; }
+            .hero { padding: 4rem 1.5rem; }
+            .hero-stats { gap: 2rem; }
+            .section, .section-alt-inner { padding: 3.5rem 1.25rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-avatar-card { position: static; }
+            .about-highlights { grid-template-columns: 1fr; }
+            .timeline { padding-left: 1.5rem; }
+            .contact-wrapper { padding: 2.5rem 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">Venkatesh &nbsp;<span>SAP Consultant</span></div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#links">Links</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">Available for Projects &amp; Consulting</div>
+    <h1>Venkatesh<br><span>SAP BW/4HANA &amp; ABAP Consultant</span></h1>
+    <p class="hero-subtitle">Data Warehousing · Analytics · Enterprise ABAP Development</p>
+    <p class="hero-tagline">Transforming business data into actionable intelligence on SAP HANA platform</p>
+    <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+        <div class="stat-item">
+            <div class="stat-number">3–5</div>
+            <div class="stat-label">Years SAP Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">XX+</div>
+            <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">XX+</div>
+            <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3–5</div>
+            <div class="stat-label">Years SAP Experience</div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Senior <span>SAP Consultant</span></h2>
+    <div class="section-line"></div>
+    <div class="about-grid">
+        <div class="about-avatar-card">
+            <div class="avatar-circle">👨‍💼</div>
+            <h3>Venkatesh</h3>
+            <p>SAP BW/4HANA &amp; ABAP Specialist<br>Bhopal, India 🇮🇳</p>
+            <div class="cert-list">
+                <div style="font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--sap-gold); margin-bottom:10px;">🏆 Record of Achievements</div>
+                <div class="cert-item"><span class="cert-icon">✅</span> Completed SAP BW/4HANA training &amp; hands-on implementation</div>
+                <div class="cert-item"><span class="cert-icon">✅</span> Completed SAP ABAP programming training with real-world projects</div>
+                <div class="cert-item"><span class="cert-icon">✅</span> Completed openSAP courses on SAP HANA platform</div>
+                <div class="cert-item"><span class="cert-icon">🎯</span> Pursuing SAP BW/4HANA Certification (in progress)</div>
+                <div class="cert-item"><span class="cert-icon">📍</span> Available Pan-India &amp; Remote</div>
+            </div>
+        </div>
+        <div class="about-content">
+            <h3>About Me</h3>
+            <p>
+                I am a dedicated SAP BW/4HANA and ABAP Consultant with hands-on experience in designing and implementing
+                enterprise-grade data warehouse solutions on the SAP HANA platform. My expertise spans the full lifecycle
+                of SAP projects — from requirements gathering and architecture design to development, testing, and go-live support.
+            </p>
+            <p>
+                I specialize in building high-performance ADSO-based data models, CompositeProviders, Open ODS Views,
+                BW Query design, and advanced ABAP development including BAPI, BAdI, User Exits, ALV Reports, and OOPS ABAP.
+            </p>
+            <p>
+                I am passionate about delivering clean, maintainable solutions that empower business stakeholders with
+                reliable data and actionable reports.
+            </p>
+            <div class="about-highlights">
+                <div class="highlight-item">
+                    <h4>Core Platform</h4>
+                    <p>SAP BW/4HANA 2.0, SAP S/4HANA, SAP HANA 2.0</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>Development</h4>
+                    <p>ABAP, AMDP, CDS Views, HANA Native SQL</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>Reporting</h4>
+                    <p>SAP Analytics Cloud, BEx Analyzer, Analysis for Office</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>Integration</h4>
+                    <p>SAP BODS, SLT, ALE/IDOC, BAPIs, LSMW</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERTISE -->
+<div class="section-alt" id="expertise">
+<div class="section-alt-inner">
+    <div class="section-tag">Technical Skills</div>
+    <h2 class="section-title">Areas of <span>Expertise</span></h2>
+    <div class="section-line"></div>
+    <div class="expertise-grid">
+
+        <div class="expertise-card" style="--card-accent: #0070F2;">
+            <div class="expertise-icon">🏗️</div>
+            <h3>SAP BW/4HANA Architecture</h3>
+            <div class="skill-pills">
+                <span class="pill">ADSO</span>
+                <span class="pill">Open ODS View</span>
+                <span class="pill">CompositeProvider</span>
+                <span class="pill">DataSource</span>
+                <span class="pill">Transformation</span>
+                <span class="pill">DTP</span>
+                <span class="pill">Process Chains</span>
+                <span class="pill">InfoArea</span>
+            </div>
+        </div>
+
+        <div class="expertise-card" style="--card-accent: #E8A000;">
+            <div class="expertise-icon">💾</div>
+            <h3>SAP HANA Development</h3>
+            <div class="skill-pills">
+                <span class="pill gold">Calculation Views</span>
+                <span class="pill gold">AMDP</span>
+                <span class="pill gold">CDS Views</span>
+                <span class="pill gold">Native SQL</span>
+                <span class="pill gold">HANA Studio</span>
+                <span class="pill gold">Virtual Tables</span>
+            </div>
+        </div>
+
+        <div class="expertise-card" style="--card-accent: #107E3E;">
+            <div class="expertise-icon">⚙️</div>
+            <h3>ABAP Development</h3>
+            <div class="skill-pills">
+                <span class="pill green">OOPS ABAP</span>
+                <span class="pill green">BAPI</span>
+                <span class="pill green">BAdI</span>
+                <span class="pill green">User Exits</span>
+                <span class="pill green">ALV Reports</span>
+                <span class="pill green">SmartForms</span>
+                <span class="pill green">ALE/IDOC</span>
+                <span class="pill green">LSMW</span>
+            </div>
+        </div>
+
+        <div class="expertise-card" style="--card-accent: #E76500;">
+            <div class="expertise-icon">📊</div>
+            <h3>Reporting &amp; Analytics</h3>
+            <div class="skill-pills">
+                <span class="pill orange">SAP Analytics Cloud</span>
+                <span class="pill orange">BEx Query Designer</span>
+                <span class="pill orange">Analysis for Office</span>
+                <span class="pill orange">BEx Analyzer</span>
+                <span class="pill orange">WAD</span>
+            </div>
+        </div>
+
+        <div class="expertise-card" style="--card-accent: #0A6ED1;">
+            <div class="expertise-icon">🔗</div>
+            <h3>Data Integration</h3>
+            <div class="skill-pills">
+                <span class="pill">SAP BODS</span>
+                <span class="pill">SLT</span>
+                <span class="pill">SDI</span>
+                <span class="pill">ODP Framework</span>
+                <span class="pill">REST APIs</span>
+                <span class="pill">Flat File</span>
+                <span class="pill">DB Connect</span>
+            </div>
+        </div>
+
+        <div class="expertise-card" style="--card-accent: #6E49CB;">
+            <div class="expertise-icon">🚀</div>
+            <h3>Project &amp; Methodology</h3>
+            <div class="skill-pills">
+                <span class="pill">SAP Activate</span>
+                <span class="pill">Agile/Scrum</span>
+                <span class="pill">ASAP</span>
+                <span class="pill">Transport Mgmt</span>
+                <span class="pill">JIRA</span>
+                <span class="pill">Git / GitHub</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+    <div class="section-tag">Career History</div>
+    <h2 class="section-title">Professional <span>Experience</span></h2>
+    <div class="section-line"></div>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <span class="timeline-role">SAP BW/4HANA Consultant</span>
+                    <span class="timeline-period">Current</span>
+                </div>
+                <div class="timeline-company">[ Your Current Company ] · Full-time</div>
+                <ul>
+                    <li>Designed and developed end-to-end BW/4HANA data models using ADSO, Open ODS Views and CompositeProviders</li>
+                    <li>Implemented ODP-based extractors for S/4HANA modules (FI, CO, MM, SD)</li>
+                    <li>Created AMDP routines and Calculation Views for complex transformation logic</li>
+                    <li>Developed BEx Queries and Analysis for Office reports for business stakeholders</li>
+                    <li>Managed Process Chains and monitored data load performance</li>
+                </ul>
+                <div class="timeline-tags">
+                    <span class="timeline-tag">BW/4HANA 2.0</span>
+                    <span class="timeline-tag">ADSO</span>
+                    <span class="timeline-tag">ODP</span>
+                    <span class="timeline-tag">AMDP</span>
+                    <span class="timeline-tag">Analysis for Office</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <span class="timeline-role">SAP ABAP Developer</span>
+                    <span class="timeline-period">Previous Role</span>
+                </div>
+                <div class="timeline-company">[ Previous Company ]</div>
+                <ul>
+                    <li>Developed custom ABAP programs, reports, and enhancements using User Exits and BAdIs</li>
+                    <li>Built interfaces using ALE/IDOC and BAPI for third-party system integration</li>
+                    <li>Created SmartForms and SAPScript output forms for SD and MM modules</li>
+                    <li>Performed data migration using LSMW and BAPI-based programs</li>
+                </ul>
+                <div class="timeline-tags">
+                    <span class="timeline-tag">OOPS ABAP</span>
+                    <span class="timeline-tag">BAPI</span>
+                    <span class="timeline-tag">BAdI</span>
+                    <span class="timeline-tag">ALE/IDOC</span>
+                    <span class="timeline-tag">SmartForms</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<div class="section-alt" id="projects">
+<div class="section-alt-inner">
+    <div class="section-tag">Portfolio</div>
+    <h2 class="section-title">Key <span>Projects</span></h2>
+    <div class="section-line"></div>
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <div class="project-top">
+                <div class="project-icon-box" style="background:#EBF3FF;">📦</div>
+                <div>
+                    <h3>Financial Data Warehouse – BW/4HANA Migration</h3>
+                    <p>Migrated legacy SAP BW 7.5 to BW/4HANA, redesigning data models with ADSO and implementing performance-optimized Process Chains.</p>
+                </div>
+            </div>
+            <div class="project-bottom">
+                <ul>
+                    <li>Migrated 40+ InfoProviders to ADSO-based models</li>
+                    <li>Reduced data load time by ~60% using push-down to HANA</li>
+                    <li>Implemented delta-capable ODP extractors for FI-CO</li>
+                </ul>
+                <div class="project-stack">
+                    <span class="stack-tag">BW/4HANA 2.0</span>
+                    <span class="stack-tag">ADSO</span>
+                    <span class="stack-tag">AMDP</span>
+                    <span class="stack-tag">ODP</span>
+                    <span class="stack-tag">Process Chains</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-top">
+                <div class="project-icon-box" style="background:#FFF3D6;">📊</div>
+                <div>
+                    <h3>SAC Dashboard for Executive Reporting</h3>
+                    <p>Built an end-to-end live reporting solution using SAP Analytics Cloud connected to BW/4HANA CompositeProviders.</p>
+                </div>
+            </div>
+            <div class="project-bottom">
+                <ul>
+                    <li>Designed CompositeProvider with multi-source ADSO joins</li>
+                    <li>Built SAC Stories with KPIs, charts and drill-through navigation</li>
+                    <li>Enabled live data connection for real-time executive dashboards</li>
+                </ul>
+                <div class="project-stack">
+                    <span class="stack-tag">SAP Analytics Cloud</span>
+                    <span class="stack-tag">CompositeProvider</span>
+                    <span class="stack-tag">BEx Query</span>
+                    <span class="stack-tag">Live Connection</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-top">
+                <div class="project-icon-box" style="background:#EAFAF0;">⚙️</div>
+                <div>
+                    <h3>Custom ABAP Integration Framework</h3>
+                    <p>Developed a reusable ABAP OOP framework for outbound and inbound integrations using ALE/IDOC and REST services.</p>
+                </div>
+            </div>
+            <div class="project-bottom">
+                <ul>
+                    <li>Designed custom IDoc message types for MM and SD</li>
+                    <li>Built OOPS ABAP classes for REST API consumption</li>
+                    <li>Reduced integration development effort by 40% via reusable patterns</li>
+                </ul>
+                <div class="project-stack">
+                    <span class="stack-tag">OOPS ABAP</span>
+                    <span class="stack-tag">ALE/IDOC</span>
+                    <span class="stack-tag">BAPI</span>
+                    <span class="stack-tag">REST API</span>
+                    <span class="stack-tag">BAdI</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div class="section-alt" id="achievements">
+<div class="section-alt-inner">
+    <div class="section-tag">Milestones</div>
+    <h2 class="section-title">Record of <span>Achievements</span></h2>
+    <div class="section-line"></div>
+    <div class="achievements-grid">
+
+        <div class="achievement-card">
+            <div class="achievement-icon-wrap" style="background:#EBF3FF;">🎓</div>
+            <div class="achievement-body">
+                <div class="achievement-badge">Training</div>
+                <h3>SAP BW/4HANA Implementation Training</h3>
+                <p>Completed comprehensive hands-on training covering ADSO design, data modelling, transformations, process chains and query development on SAP BW/4HANA 2.0.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon-wrap" style="background:#EAFAF0;">⚙️</div>
+            <div class="achievement-body">
+                <div class="achievement-badge" style="background:#EAFAF0; color:#0B5226;">Development</div>
+                <h3>SAP ABAP Programming – End-to-End</h3>
+                <p>Completed ABAP development training covering classical ABAP, OOPS ABAP, BAPIs, BAdIs, User Exits, ALV reports, SmartForms and ALE/IDOC interfaces.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon-wrap" style="background:#FFF3D6;">💾</div>
+            <div class="achievement-body">
+                <div class="achievement-badge" style="background:#FFF3D6; color:#7A5100;">Platform</div>
+                <h3>openSAP – SAP HANA Platform Courses</h3>
+                <p>Completed openSAP courses on SAP HANA platform, covering Calculation Views, AMDP, CDS Views and native SQL scripting for high-performance analytics.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon-wrap" style="background:#F3EEFF;">🚀</div>
+            <div class="achievement-body">
+                <div class="achievement-badge" style="background:#F3EEFF; color:#4A1D96;">Project Delivery</div>
+                <h3>Hands-on SAP Project Experience (3–5 Years)</h3>
+                <p>Worked on real-world SAP BW/4HANA and ABAP projects across full project lifecycles — from blueprinting and development through to testing and go-live support.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon-wrap" style="background:#FFF0E6;">🎯</div>
+            <div class="achievement-body">
+                <div class="achievement-badge" style="background:#FFF0E6; color:#7A2D00;">In Progress</div>
+                <h3>SAP BW/4HANA Certification – Pursuing</h3>
+                <p>Currently preparing for the official SAP Certified Application Associate – SAP BW/4HANA exam to formalise expertise and strengthen professional credibility.</p>
+            </div>
+        </div>
+
+        <div class="achievement-card">
+            <div class="achievement-icon-wrap" style="background:#E6F9F1;">🌐</div>
+            <div class="achievement-body">
+                <div class="achievement-badge" style="background:#E6F9F1; color:#065F46;">Community</div>
+                <h3>SAP Community Contributor</h3>
+                <p>Actively participating in the SAP Community forums, sharing knowledge on BW/4HANA data modelling, ABAP best practices and troubleshooting complex scenarios.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<!-- LINKS -->
+<section class="section" id="links">
+    <div class="section-tag">Connect With Me</div>
+    <h2 class="section-title">Professional <span>Links</span></h2>
+    <div class="section-line"></div>
+    <div class="links-grid">
+        <a href="https://linkedin.com/in/YOUR-PROFILE" target="_blank" class="link-card">
+            <div class="link-icon">🔗</div>
+            <h3>LinkedIn</h3>
+            <p>Professional profile &amp; endorsements</p>
+        </a>
+        <a href="https://github.com/YOUR-USERNAME" target="_blank" class="link-card">
+            <div class="link-icon">💻</div>
+            <h3>GitHub</h3>
+            <p>ABAP scripts &amp; code samples</p>
+        </a>
+        <a href="https://www.sap.com/community" target="_blank" class="link-card">
+            <div class="link-icon">🌐</div>
+            <h3>SAP Community</h3>
+            <p>Answers, blogs &amp; contributions</p>
+        </a>
+        <a href="https://open.sap.com" target="_blank" class="link-card">
+            <div class="link-icon">📚</div>
+            <h3>openSAP</h3>
+            <p>SAP learning courses &amp; progress</p>
+        </a>
+        <a href="YOUR-RESUME-LINK.pdf" target="_blank" class="link-card">
+            <div class="link-icon">📄</div>
+            <h3>Resume / CV</h3>
+            <p>Download my latest CV</p>
+        </a>
+        <a href="mailto:your.email@example.com" class="link-card">
+            <div class="link-icon">📧</div>
+            <h3>Email</h3>
+            <p>your.email@example.com</p>
+        </a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<div style="padding: 0 2rem 5rem; max-width: 1100px; margin: 0 auto;" id="contact">
+    <div class="contact-wrapper">
+        <h3>Let's Build Something Great Together</h3>
+        <p>Looking for an SAP BW/4HANA or ABAP consultant? I'm open to full-time roles,<br>contract projects, and freelance engagements across India and remotely.</p>
+        <div class="contact-buttons">
+            <a href="mailto:your.email@example.com" class="contact-btn">📧 Send Email</a>
+            <a href="https://linkedin.com/in/YOUR-PROFILE" target="_blank" class="contact-btn alt">🔗 LinkedIn</a>
+            <a href="YOUR-RESUME-LINK.pdf" target="_blank" class="contact-btn alt">📄 Download CV</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2024 <span>Venkatesh</span> · SAP BW/4HANA &amp; ABAP Consultant · Bhopal, India · All rights reserved</p>
+</footer>
+
+</body>
+</html>
