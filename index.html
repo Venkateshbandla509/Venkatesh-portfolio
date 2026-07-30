@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bandla Venkatesh - SAP BW/4HANA & ABAP Consultant Portfolio">
+    <meta name="description" content="Venkatesh - SAP BW/4HANA & ABAP Consultant Portfolio">
     <meta name="keywords" content="SAP BW/4HANA, SAP ABAP, SAP Consultant, Data Warehousing, SAP HANA">
-    <title>Bandla Venkatesh | SAP BW/4HANA & ABAP Consultant</title>
+    <title>Venkatesh | SAP BW/4HANA & ABAP Consultant</title>
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
+ 
         :root {
             --sap-blue: #0070F2;
             --sap-blue-dark: #0040B0;
@@ -25,14 +25,14 @@
             --border: #D9E1EC;
             --white: #ffffff;
         }
-
+ 
         body {
             font-family: '72', 'SAP-icons', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             color: var(--text);
             background: var(--white);
             line-height: 1.7;
         }
-
+ 
         /* ── NAV ── */
         nav {
             background: var(--dark);
@@ -64,7 +64,7 @@
             transition: all 0.3s;
         }
         .nav-links a:hover { color: var(--sap-gold); border-bottom-color: var(--sap-gold); }
-
+ 
         /* ── HERO ── */
         .hero {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0d3b8c 100%);
@@ -145,7 +145,7 @@
             border: 2px solid rgba(255,255,255,0.4);
         }
         .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-2px); }
-
+ 
         .hero-stats {
             display: flex;
             justify-content: center;
@@ -158,13 +158,13 @@
         .stat-item { text-align: center; }
         .stat-number { font-size: 2rem; font-weight: 700; color: var(--sap-gold); }
         .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-
+ 
         /* ── SECTIONS ── */
         .section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
         .section-alt { background: #F0F4FA; }
         .section-alt .section { max-width: 100%; }
         .section-alt-inner { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-
+ 
         .section-tag {
             display: inline-block;
             background: rgba(0,112,242,0.1);
@@ -190,7 +190,7 @@
             border-radius: 2px;
             margin: 1rem 0 2.5rem;
         }
-
+ 
         /* ── ABOUT ── */
         .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; }
         .about-avatar-card {
@@ -225,7 +225,7 @@
             line-height: 1.5;
         }
         .cert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-
+ 
         .about-content h3 { font-size: 1.3rem; color: var(--text); margin-bottom: 1rem; font-weight: 600; }
         .about-content p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.97rem; }
         .about-highlights {
@@ -239,7 +239,7 @@
         }
         .highlight-item h4 { font-size: 0.85rem; color: var(--sap-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
         .highlight-item p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
-
+ 
         /* ── EXPERTISE / SKILLS ── */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
         .expertise-card {
@@ -273,7 +273,61 @@
         .pill.gold { background: #FFF3D6; color: #7A5100; }
         .pill.green { background: #EAFAF0; color: #0B5226; }
         .pill.orange { background: #FFF0E6; color: #7A2D00; }
-
+ 
+        /* ── EXPERIENCE ── */
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--sap-blue), var(--sap-gold));
+            border-radius: 2px;
+        }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--sap-blue);
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px rgba(0,112,242,0.25);
+        }
+        .timeline-item:first-child .timeline-dot { background: var(--sap-gold); box-shadow: 0 0 0 3px rgba(232,160,0,0.25); }
+        .timeline-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 1.8rem;
+            transition: box-shadow 0.3s;
+        }
+        .timeline-card:hover { box-shadow: 0 6px 24px rgba(0,70,130,0.1); }
+        .timeline-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem; }
+        .timeline-role { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+        .timeline-period {
+            background: rgba(0,112,242,0.1);
+            color: var(--sap-blue);
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .timeline-company { color: var(--sap-blue); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .timeline-card ul { padding-left: 1.2rem; }
+        .timeline-card ul li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.4rem; }
+        .timeline-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+        .timeline-tag {
+            background: var(--card-bg);
+            color: var(--text-muted);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            border: 1px solid var(--border);
+        }
+ 
         /* ── PROJECTS ── */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .project-card {
@@ -312,7 +366,7 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
-
+ 
         /* ── LINKS ── */
         .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; }
         .link-card {
@@ -330,7 +384,7 @@
         .link-icon { font-size: 2rem; }
         .link-card h3 { font-size: 0.95rem; font-weight: 700; }
         .link-card p { font-size: 0.82rem; color: var(--text-muted); }
-
+ 
         /* ── CONTACT ── */
         .contact-wrapper {
             background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
@@ -356,7 +410,7 @@
         .contact-btn:hover { background: var(--sap-blue-dark); transform: translateY(-2px); }
         .contact-btn.alt { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); }
         .contact-btn.alt:hover { background: rgba(255,255,255,0.18); }
-
+ 
         /* ── FOOTER ── */
         footer {
             background: var(--dark);
@@ -366,7 +420,7 @@
             font-size: 0.85rem;
         }
         footer span { color: var(--sap-gold); }
-
+ 
         /* ── ACHIEVEMENTS ── */
         .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .achievement-card {
@@ -402,7 +456,7 @@
         }
         .achievement-body h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
         .achievement-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
-
+ 
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             nav { padding: 0 1rem; }
@@ -424,24 +478,25 @@
     </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
-    <div class="nav-logo">Bandla Venkatesh &nbsp;<span>SAP Consultant</span></div>
+    <div class="nav-logo">Venkatesh &nbsp;<span>SAP Consultant</span></div>
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#achievements">Achievements</a>
         <a href="#links">Links</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
     <div class="hero-badge">Available for Projects &amp; Consulting</div>
-    <h1>Bandla Venkatesh<br><span>SAP BW/4HANA &amp; ABAP Consultant</span></h1>
+    <h1>Venkatesh<br><span>SAP BW/4HANA &amp; ABAP Consultant</span></h1>
     <p class="hero-subtitle">Data Warehousing · Analytics · Enterprise ABAP Development</p>
     <p class="hero-tagline">Transforming business data into actionable intelligence on SAP HANA platform</p>
     <div class="hero-cta">
@@ -450,20 +505,24 @@
     </div>
     <div class="hero-stats">
         <div class="stat-item">
-            <div class="stat-number">4+</div>
+            <div class="stat-number">3–5</div>
             <div class="stat-label">Years SAP Experience</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">4+</div>
+            <div class="stat-number">XX+</div>
             <div class="stat-label">Projects Delivered</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">4+</div>
+            <div class="stat-number">XX+</div>
             <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3–5</div>
+            <div class="stat-label">Years SAP Experience</div>
         </div>
     </div>
 </section>
-
+ 
 <!-- ABOUT -->
 <section class="section" id="about">
     <div class="section-tag">About Me</div>
@@ -473,7 +532,7 @@
         <div class="about-avatar-card">
             <div class="avatar-circle">👨‍💼</div>
             <h3>Venkatesh</h3>
-            <p>SAP BW/4HANA &amp; ABAP Specialist<br>ANDHRA PRADESH, India 🇮🇳</p>
+            <p>SAP BW/4HANA &amp; ABAP Specialist<br>Bhopal, India 🇮🇳</p>
             <div class="cert-list">
                 <div style="font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--sap-gold); margin-bottom:10px;">🏆 Record of Achievements</div>
                 <div class="cert-item"><span class="cert-icon">✅</span> Completed SAP BW/4HANA training &amp; hands-on implementation</div>
@@ -519,7 +578,7 @@
         </div>
     </div>
 </section>
-
+ 
 <!-- EXPERTISE -->
 <div class="section-alt" id="expertise">
 <div class="section-alt-inner">
@@ -527,7 +586,7 @@
     <h2 class="section-title">Areas of <span>Expertise</span></h2>
     <div class="section-line"></div>
     <div class="expertise-grid">
-
+ 
         <div class="expertise-card" style="--card-accent: #0070F2;">
             <div class="expertise-icon">🏗️</div>
             <h3>SAP BW/4HANA Architecture</h3>
@@ -542,7 +601,7 @@
                 <span class="pill">InfoArea</span>
             </div>
         </div>
-
+ 
         <div class="expertise-card" style="--card-accent: #E8A000;">
             <div class="expertise-icon">💾</div>
             <h3>SAP HANA Development</h3>
@@ -555,7 +614,7 @@
                 <span class="pill gold">Virtual Tables</span>
             </div>
         </div>
-
+ 
         <div class="expertise-card" style="--card-accent: #107E3E;">
             <div class="expertise-icon">⚙️</div>
             <h3>ABAP Development</h3>
@@ -570,7 +629,7 @@
                 <span class="pill green">LSMW</span>
             </div>
         </div>
-
+ 
         <div class="expertise-card" style="--card-accent: #E76500;">
             <div class="expertise-icon">📊</div>
             <h3>Reporting &amp; Analytics</h3>
@@ -582,7 +641,7 @@
                 <span class="pill orange">WAD</span>
             </div>
         </div>
-
+ 
         <div class="expertise-card" style="--card-accent: #0A6ED1;">
             <div class="expertise-icon">🔗</div>
             <h3>Data Integration</h3>
@@ -596,7 +655,7 @@
                 <span class="pill">DB Connect</span>
             </div>
         </div>
-
+ 
         <div class="expertise-card" style="--card-accent: #6E49CB;">
             <div class="expertise-icon">🚀</div>
             <h3>Project &amp; Methodology</h3>
@@ -609,11 +668,70 @@
                 <span class="pill">Git / GitHub</span>
             </div>
         </div>
-
+ 
     </div>
 </div>
 </div>
-
+ 
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+    <div class="section-tag">Career History</div>
+    <h2 class="section-title">Professional <span>Experience</span></h2>
+    <div class="section-line"></div>
+    <div class="timeline">
+ 
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <span class="timeline-role">SAP BW/4HANA Consultant</span>
+                    <span class="timeline-period">Current</span>
+                </div>
+                <div class="timeline-company">[ Your Current Company ] · Full-time</div>
+                <ul>
+                    <li>Designed and developed end-to-end BW/4HANA data models using ADSO, Open ODS Views and CompositeProviders</li>
+                    <li>Implemented ODP-based extractors for S/4HANA modules (FI, CO, MM, SD)</li>
+                    <li>Created AMDP routines and Calculation Views for complex transformation logic</li>
+                    <li>Developed BEx Queries and Analysis for Office reports for business stakeholders</li>
+                    <li>Managed Process Chains and monitored data load performance</li>
+                </ul>
+                <div class="timeline-tags">
+                    <span class="timeline-tag">BW/4HANA 2.0</span>
+                    <span class="timeline-tag">ADSO</span>
+                    <span class="timeline-tag">ODP</span>
+                    <span class="timeline-tag">AMDP</span>
+                    <span class="timeline-tag">Analysis for Office</span>
+                </div>
+            </div>
+        </div>
+ 
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <span class="timeline-role">SAP ABAP Developer</span>
+                    <span class="timeline-period">Previous Role</span>
+                </div>
+                <div class="timeline-company">[ Previous Company ]</div>
+                <ul>
+                    <li>Developed custom ABAP programs, reports, and enhancements using User Exits and BAdIs</li>
+                    <li>Built interfaces using ALE/IDOC and BAPI for third-party system integration</li>
+                    <li>Created SmartForms and SAPScript output forms for SD and MM modules</li>
+                    <li>Performed data migration using LSMW and BAPI-based programs</li>
+                </ul>
+                <div class="timeline-tags">
+                    <span class="timeline-tag">OOPS ABAP</span>
+                    <span class="timeline-tag">BAPI</span>
+                    <span class="timeline-tag">BAdI</span>
+                    <span class="timeline-tag">ALE/IDOC</span>
+                    <span class="timeline-tag">SmartForms</span>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</section>
+ 
 <!-- PROJECTS -->
 <div class="section-alt" id="projects">
 <div class="section-alt-inner">
@@ -621,7 +739,7 @@
     <h2 class="section-title">Key <span>Projects</span></h2>
     <div class="section-line"></div>
     <div class="projects-grid">
-
+ 
         <div class="project-card">
             <div class="project-top">
                 <div class="project-icon-box" style="background:#EBF3FF;">📦</div>
@@ -645,7 +763,7 @@
                 </div>
             </div>
         </div>
-
+ 
         <div class="project-card">
             <div class="project-top">
                 <div class="project-icon-box" style="background:#FFF3D6;">📊</div>
@@ -668,7 +786,7 @@
                 </div>
             </div>
         </div>
-
+ 
         <div class="project-card">
             <div class="project-top">
                 <div class="project-icon-box" style="background:#EAFAF0;">⚙️</div>
@@ -692,11 +810,11 @@
                 </div>
             </div>
         </div>
-
+ 
     </div>
 </div>
 </div>
-
+ 
 <!-- ACHIEVEMENTS -->
 <div class="section-alt" id="achievements">
 <div class="section-alt-inner">
@@ -704,7 +822,7 @@
     <h2 class="section-title">Record of <span>Achievements</span></h2>
     <div class="section-line"></div>
     <div class="achievements-grid">
-
+ 
         <div class="achievement-card">
             <div class="achievement-icon-wrap" style="background:#EBF3FF;">🎓</div>
             <div class="achievement-body">
@@ -713,7 +831,7 @@
                 <p>Completed comprehensive hands-on training covering ADSO design, data modelling, transformations, process chains and query development on SAP BW/4HANA 2.0.</p>
             </div>
         </div>
-
+ 
         <div class="achievement-card">
             <div class="achievement-icon-wrap" style="background:#EAFAF0;">⚙️</div>
             <div class="achievement-body">
@@ -722,7 +840,7 @@
                 <p>Completed ABAP development training covering classical ABAP, OOPS ABAP, BAPIs, BAdIs, User Exits, ALV reports, SmartForms and ALE/IDOC interfaces.</p>
             </div>
         </div>
-
+ 
         <div class="achievement-card">
             <div class="achievement-icon-wrap" style="background:#FFF3D6;">💾</div>
             <div class="achievement-body">
@@ -731,7 +849,7 @@
                 <p>Completed openSAP courses on SAP HANA platform, covering Calculation Views, AMDP, CDS Views and native SQL scripting for high-performance analytics.</p>
             </div>
         </div>
-
+ 
         <div class="achievement-card">
             <div class="achievement-icon-wrap" style="background:#F3EEFF;">🚀</div>
             <div class="achievement-body">
@@ -740,7 +858,7 @@
                 <p>Worked on real-world SAP BW/4HANA and ABAP projects across full project lifecycles — from blueprinting and development through to testing and go-live support.</p>
             </div>
         </div>
-
+ 
         <div class="achievement-card">
             <div class="achievement-icon-wrap" style="background:#FFF0E6;">🎯</div>
             <div class="achievement-body">
@@ -749,7 +867,7 @@
                 <p>Currently preparing for the official SAP Certified Application Associate – SAP BW/4HANA exam to formalise expertise and strengthen professional credibility.</p>
             </div>
         </div>
-
+ 
         <div class="achievement-card">
             <div class="achievement-icon-wrap" style="background:#E6F9F1;">🌐</div>
             <div class="achievement-body">
@@ -758,11 +876,11 @@
                 <p>Actively participating in the SAP Community forums, sharing knowledge on BW/4HANA data modelling, ABAP best practices and troubleshooting complex scenarios.</p>
             </div>
         </div>
-
+ 
     </div>
 </div>
 </div>
-
+ 
 <!-- LINKS -->
 <section class="section" id="links">
     <div class="section-tag">Connect With Me</div>
@@ -794,31 +912,31 @@
             <h3>Resume / CV</h3>
             <p>Download my latest CV</p>
         </a>
-        <a href="mailto:bandlavenaktesh509@gmail.com" class="link-card">
+        <a href="mailto:bandlavenkatesh509@gmail.com" class="link-card">
             <div class="link-icon">📧</div>
             <h3>Email</h3>
-            <p>your.email@example.com</p>
+            <p>bandlavenkatesh509@gmail.com</p>
         </a>
     </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <div style="padding: 0 2rem 5rem; max-width: 1100px; margin: 0 auto;" id="contact">
     <div class="contact-wrapper">
         <h3>Let's Build Something Great Together</h3>
-        <p>Looking for an SAP BW/4HANA or ABAP consultant? <br>freelance engagements across India and remotely.</p>
+        <p>Looking for an SAP BW/4HANA or ABAP consultant? I'm open to full-time roles,<br>contract projects, and freelance engagements across India and remotely.</p>
         <div class="contact-buttons">
-            <a href="mailto:your.email@example.com" class="contact-btn">📧 Send Email</a>
+            <a href="mailto:bandlavenkatesh509@gmail.com" class="contact-btn">📧 Send Email</a>
             <a href="https://linkedin.com/in/venkateshbandla" target="_blank" class="contact-btn alt">🔗 LinkedIn</a>
             <a href="YOUR-RESUME-LINK.pdf" target="_blank" class="contact-btn alt">📄 Download CV</a>
         </div>
     </div>
 </div>
-
+ 
 <!-- FOOTER -->
 <footer>
-    <p>&copy; 2026 <span>Bandla Venkatesh</span> · SAP BW/4HANA &amp; ABAP Consultant · Andhra Pradesh, India · All rights reserved</p>
+    <p>&copy; 2024 <span>Venkatesh</span> · SAP BW/4HANA &amp; ABAP Consultant · Bhopal, India · All rights reserved</p>
 </footer>
-
+ 
 </body>
 </html>
